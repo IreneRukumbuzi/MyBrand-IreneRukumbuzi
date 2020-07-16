@@ -1,0 +1,34 @@
+.name{
+    color: white;
+}
+
+.main-section{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.image-div{
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.image-div .my-profile{
+    background-image: url(/Imgs/2018_09_22_23_33_C74DF520-C014-4426-8AD1-FC96F856761F.JPG);
+    flex-grow: 1;
+    max-height: 60vh;
+    min-width: 30vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom left;
+}
+
+.blog-div{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-grow: 1;
+}
