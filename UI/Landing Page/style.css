@@ -9,8 +9,9 @@ body{
     padding: 0;
     background-color: #097392;
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .full-height-grow{
@@ -18,7 +19,7 @@ body{
     display: flex;
 }
 
-.main-nav ul{
+.main-nav ul {
     display: flex;
     margin: 0;
     padding: 0;
@@ -33,10 +34,11 @@ body{
     color: white;
     text-decoration: none;
     padding: 2rem;
+    font-size: 1.5em;
 }
 
-.main-nav a:hover{
-    color: #000;
+.main-nav a:hover {
+    color: red;
     cursor: pointer;
 }
 
@@ -51,6 +53,7 @@ body{
     margin: 0 auto;
     max-width: 1850px;
     padding: 0 40px;
+    flex-grow: 1;
 }
 
 .title{
@@ -73,7 +76,54 @@ body{
     color: white;
     font-size: 1.5em;
     text-decoration: none;
-    border-radius: 10px;
-    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border: none;
 }
 
+.btn:hover{
+    color: red;
+}
+
+@media(max-width: 600px){
+    .container{
+        font-size: 10px;
+        overflow: visible;
+        margin: 5px;
+        padding: 5px;
+    }
+    .heading {
+        margin: 0;
+    }
+    .title{
+        font-size: 2em;
+        margin-bottom: 0;
+    }
+    .main-section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-cards{
+       display: flex;
+       flex-direction: column;
+       margin: 0;
+       padding: 0;
+       width: 100vw;
+    }
+    .card{
+        margin: auto;
+        max-width: 90vw;
+    }
+    .main-nav ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9em;
+        height: 60px;
+    }
+    .btn{
+        padding: 0.75rem 1.5rem;
+    }
+}
