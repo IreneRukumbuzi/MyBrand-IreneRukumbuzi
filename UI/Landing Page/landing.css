@@ -7,6 +7,7 @@
     flex-grow: 1;
     justify-content: space-around;
     align-items: stretch; 
+    overflow: visible;
 }
 
 .image-div{
@@ -34,22 +35,27 @@
 }
 
 .blogs-div a{
-    color: darkblue;
+    color: #1C1836;
     text-decoration: none;
     padding: 0.2em;
     border-radius: 10px;
    
 }
 
+.blogs-div a:hover{
+    color: red;
+}
 .heading{
     flex-direction: column;
     display: flex;
     align-items: flex-start;
     align-self: center;
-    margin-bottom: 200px;
 }
 
 @media(max-width: 1000px){
+    .container{
+        overflow: visible;
+    }
     .image-div{
         display: none;
     }
@@ -66,13 +72,13 @@
     align-items: center;
     margin: auto;
     box-sizing: border-box;
-    padding: 0 20px;
     width: 80%;
 }
 
 .main-cards h3{
     text-align: center;
-    color: white;
+    color: #1C1836;
+    font-size: 1.5em;
 }
 
 .main-cards p{
@@ -85,8 +91,12 @@
 }
 
 .card{
-    background: linear-gradient(#2296D7, #C4C4C4);
+    background: linear-gradient(rgb(34, 150, 215, .27), rgb(196, 196, 196, 0));
     border-radius: 10px;
-    max-width: 20vw;
+    margin: 10px;
+    padding: 10px;
 }
 
+.card:hover{
+    background: linear-gradient( #C4C4C4,#2296D7);
+}
