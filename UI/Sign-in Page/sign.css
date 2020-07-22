@@ -42,7 +42,7 @@ body{
     margin-bottom: 20px;
 }
 .labels{
-    padding-bottom: 0.2rem;
+    padding-bottom: 1rem;
     font-size: 18px;
 }
 .header h2{
@@ -56,7 +56,7 @@ body{
     color: white;
     font-size: 1.2em;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 20px;
     padding: 0.9rem 1.2rem;
     cursor: pointer;
     border: none;
@@ -68,14 +68,12 @@ body{
     color: red;
 }
 .svgs{
-    width: 18px;
+    width: 20px;
 }
 
 .main-footer{
     display: flex;
-    align-content: center;
-    justify-content: space-between;
-    height: 50px;
+    height: 40px;
     position: absolute;
     background-color: rgb(28, 24, 54, .85);
     bottom: 0;
@@ -96,14 +94,11 @@ body{
     color: red;
 }
 
-.words{
-    margin-bottom: 10px;
-}
 .main-footer .footer-container{
     display: flex;
     align-items: center;
     width: 100vw;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 @media (max-width: 1024px){
@@ -120,9 +115,6 @@ body{
         position: fixed;
         bottom: 0;
         height: 40px;
-    }
-    .right-div{
-        display: none;
     }
     .footer-container{
         display: flex;
