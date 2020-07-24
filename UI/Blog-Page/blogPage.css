@@ -1,0 +1,125 @@
+.img-div img{
+    width: 100%;
+    
+}
+.img-div{
+    margin: auto;
+    width: 80%;
+    z-index: -1;
+}
+.pageBody{
+    overflow: visible;
+}
+.blogBody{
+    display: flex;
+    flex-direction: column;
+    top: 90px;
+    position: relative;
+    height: fit-content;
+    margin: auto;
+    width: 80%;
+    z-index: -1;
+    align-items: center;
+    overflow: visible;
+}
+
+.contents{
+    width: 70vw;
+    margin: 30px 0 0 0;   
+}
+.contents p{
+    font-size: 22px;
+    font-weight: 100;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.contents h1{
+    text-align: center;
+}
+.commentSection{
+    display: flex;
+    flex-direction: column;
+}
+.commentSection label{
+    margin-bottom: 10px;
+}
+
+.commentSection textarea{
+    resize: none;
+    font-size: 18px;
+    width: 30vw;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: rgb(28, 24, 54, .85);
+    color: white;
+}
+.contents p{
+   padding: 0%;
+}
+.contents h4{
+    margin-bottom: 10px;
+}
+.likeBtn{
+    width: 30px;
+    padding-bottom: 20px;
+}
+.like{
+    width: 40px;
+    background: none;
+    border: none;
+
+    transition: .4s ease;
+}
+.like:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.commentBtn{
+    display: flex;
+    align-items: center;   
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 20px 0px 0px 0px;
+    width: 100px;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: rgb(28, 24, 54, .85);
+}
+
+.commentBtn:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.img-div img{
+    border-radius: 15px;
+}
+
+@media(max-width: 1050px){
+   
+    .blogBody{
+        flex-direction: column;
+        z-index: -1;
+        margin: 20px;
+        width: 90%;
+        font-size: 20px;
+        align-items: center;
+    }
+
+    .contents h1{
+        text-align: center;
+    }
+    
+    
+
+.contents {
+    margin: 10px auto;
+}
+
+}
