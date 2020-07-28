@@ -149,18 +149,21 @@ h2{
 #crtBtn button:hover{
     color: red;
 }
-
-.navbar{
+nav{
     height: 50px;
+    display: flex;
     position: fixed;
     top: 0;
     width: 100%;
     background-color:rgb(28, 24, 54, 1);
+}
+.navbar{
+    width: 100%;
     padding: 0 50px;
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-    transition: all 1s ease-in; 
+    align-items: center;  
+    background-color: rgb(28, 24, 54, 1);
 }
 nav ul{
     display: flex;
