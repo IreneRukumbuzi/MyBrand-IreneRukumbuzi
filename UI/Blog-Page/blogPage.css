@@ -1,24 +1,41 @@
 .img-div img{
     width: 100%;
-    max-height: 100vh;
+    
+}
+.img-div{
+    margin: auto;
+    width: 80%;
+    z-index: -1;
+}
+.pageBody{
+    overflow: visible;
 }
 .blogBody{
     display: flex;
+    flex-direction: column;
     top: 90px;
     position: relative;
-    min-height: 80vh;
+    height: fit-content;
     margin: auto;
-    width: 95%;
-    justify-content: space-between;
+    width: 80%;
+    z-index: -1;
     align-items: center;
+    overflow: visible;
 }
 
 .contents{
-    margin: 0 0 0 30px;   
+    width: 70vw;
+    margin: 30px 0 0 0;   
 }
 .contents p{
-    line-height: 20px;
+    font-size: 22px;
+    font-weight: 100;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.contents h1{
+    text-align: center;
 }
 .commentSection{
     display: flex;

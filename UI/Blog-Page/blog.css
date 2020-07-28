@@ -187,7 +187,15 @@ nav a{
     margin: 0 10px;
     display: block;
 }
-.main-nav a:hover{
+
+.main-nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 10px;
+    display: block;
+}
+.main-nav ul li a:hover{
     color: red;
     cursor: pointer;
 }
