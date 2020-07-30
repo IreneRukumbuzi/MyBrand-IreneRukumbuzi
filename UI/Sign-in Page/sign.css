@@ -8,17 +8,21 @@ body{
     background-color: #097392;
     color: white;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .container{
     background: rgb(28, 24, 54, .85);
     border-radius: 10px;
     min-width: 35vw;
+    padding: 20px;
 }
 
 .my-form{
@@ -141,6 +145,27 @@ header a{
 .main-nav a:hover{
     color: red;
     cursor: pointer;
+}
+
+#admin-div{
+    display: block;
+    
+}
+#admin-div a{
+    text-decoration: none;
+    color: white;
+}
+
+#admin-div a:hover{
+    color: red;
+}
+
+h3{
+    text-align: center;
+}
+
+.loggedIn{
+    padding: 20px;
 }
 
 @media (max-width: 600px){

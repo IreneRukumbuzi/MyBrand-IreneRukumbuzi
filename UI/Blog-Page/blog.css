@@ -52,6 +52,7 @@ h2{
     justify-content: flex-end;
 }
 
+
 .btn{
     padding: 10px 15px;
     font-size: 18px;
@@ -61,12 +62,13 @@ h2{
 }
 .btn:hover{
     cursor: pointer;
-    color: black;
+    color: red;
 }
 #edit-btn{
   background: rgb(28, 24, 54, .85);
   margin: 0px 10px 0px 0px;  
 }
+
 #title{
     font-size: 25px;
 }
@@ -313,7 +315,18 @@ nav a{
     border-radius: 10px;
 }
 
+.c-body{
+    width: 80vw;
+    margin: auto;
+    position: relative;
+    top: 40px;
+}
 
+.c-body p{
+    line-height: 2rem;
+    font-size: 16px;
+    text-align: center;
+}
 @media(max-width: 1070px){
     *{
         font-size: 20px;
