@@ -23,7 +23,6 @@ h2{
 .input-group{
     display: flex;
     flex-direction: column;
-    border: none;
     outline: none; 
 }
 
@@ -105,6 +104,25 @@ img{
 .svgs{
     position: relative;
     top: 3px;
+}
+
+.success{
+    border: 3px solid green;
+}
+
+.error{
+    border: 3px solid red;
+}
+
+.contact-form #errorMessage {
+    color: white;
+    background: rgb(80, 39, 39);
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    display: none;
+    margin-bottom: 10px;
+    /* transition: all 0.5s ease-in; */
 }
 
 @media (max-width: 600px){
