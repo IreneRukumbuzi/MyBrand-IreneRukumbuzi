@@ -24,90 +24,41 @@
         </div>
         </nav>
     <div class="cards">
-        <div class="card">
-            <div class="image-div">
-                <img src="./Images/2019_11_22_07_41_IMG_1023.JPG" alt="">
-            </div>
-            <div class="card-body">
-                <span>4 Days Ago</span>
-                <h3>Post One</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus aperiam ipsam necessitatibus quos qui reicien</p>
-            </div>
-            <div class="card-stats">
-            <div class="stat">
-                <div class="value">50</div>
-                <div class="type">Likes</div>
-            </div>
-            <div class="stat border">
-                <div class="value">500</div>
-                <div class="type">Read</div>
-            </div>
-            <div class="stat">
-                <div class="value">50</div>
-                <div class="type">Comments</div>
-            </div>
-        </div>
-        <div class="rm-btn">
-            <a href="./blogPage.html" class="rm-btns">Read More</a>
-            </div>
+        <div class="cards_container">
+
         </div>
       
-        <div class="card">
-            <div class="image-div">
-                <img src="./Images/nathan-rogers-ObhCU6Vhoe8-unsplash.jpg" alt="">
-            </div>
-            <div class="card-body">
-                <span>4 Days Ago</span>
-                <h3>Post One</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus aperiam ipsam necessitatibus quos qui reicien</p>
-            </div>
-            <div class="card-stats">
-            <div class="stat">
-                <div class="value">50</div>
-                <div class="type">Likes</div>
-            </div>
-            <div class="stat border">
-                <div class="value">500</div>
-                <div class="type">Read</div>
-            </div>
-            <div class="stat">
-                <div class="value">50</div>
-                <div class="type">Comments</div>
-            </div>
-        </div>
-        <div class="rm-btn">
-            <a href="./blogPage.html" class="rm-btns">Read More</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image-div">
-                <img src="./Images/victor-DM7anCVliOc-unsplash.jpg" alt="">
-            </div>
-            <div class="card-body">
-                <span>4 Days Ago</span>
-                <h3>Post One</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus aperiam ipsam necessitatibus quos qui reicien</p>
-            </div>
-            <div class="card-stats">
-            <div class="stat">
-                <div class="value">50</div>
-                <div class="type">Likes</div>
-            </div>
-            <div class="stat border">
-                <div class="value">500</div>
-                <div class="type">Read</div>
-            </div>
-            <div class="stat">
-                <div class="value">50</div>
-                <div class="type">Comments</div>
-            </div>
-        </div>
-        <div class="rm-btn">
-            <a href="./blogPage.html" class="rm-btns">Read More</a>
-            </div>
-        </div>
     </div>
 
+     
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
+    authDomain: "my-brand-irene-c2a80.firebaseapp.com",
+    databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
+    projectId: "my-brand-irene-c2a80",
+    storageBucket: "my-brand-irene-c2a80.appspot.com",
+    messagingSenderId: "981307922858",
+    appId: "1:981307922858:web:e98322b269aa6cf23f73d3",
+    measurementId: "G-3Y9D2K7LVQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const db = firebase.firestore();
+</script>
+
+    <script src="./blogsCard.js"></script>
     <script src="./blog.js"></script>
 </body>
 </html>

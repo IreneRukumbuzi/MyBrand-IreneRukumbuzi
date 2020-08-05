@@ -29,16 +29,9 @@
             <img src="./Images/2019_11_22_07_41_IMG_1023.JPG" alt="">
         </div>
         <div class="contents">
-            <h1>Blog Title</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda ipsam, dolore voluptatem nam sapiente eum itaque corrupti? Tempore, reprehenderit repudiandae, rem porro incidunt eum alias praesentium, molestiae facilis explicabo eligendi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum consequuntur ab quaerat eum accusantium. Itaque perspiciatis totam doloremque. Impedit sunt hic rem distinctio facere fugiat eveniet, error cumque aliquam libero. 
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam perspiciatis quibusdam fugiat vel quo aliquid, mollitia impedit libero vero atque iure fuga reiciendis accusantium velit sequi quidem, dolores modi dignissimos!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit sit harum ratione accusamus velit, vitae quos repudiandae excepturi natus porro quaerat nam quasi eligendi incidunt non assumenda. Iusto, ducimus. Alias?
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, fugit ea laborum suscipit pariatur maxime alias id, animi perspiciatis unde nostrum excepturi. Iusto, impedit et doloremque fugit voluptas officiis illo!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, in nesciunt rem accusantium excepturi repellendus, reiciendis corrupti quae at quas, quidem nulla. Aliquid sed harum totam sunt consectetur numquam libero.
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam tenetur perferendis velit minima inventore autem dolorum nihil modi possimus numquam minus cum, aliquid repudiandae doloremque provident. Possimus numquam similique quasi.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur autem repellat veritatis quas vel sint culpa similique tempora iusto saepe sapiente architecto fugiat minus aut enim, dolor ex quo qui!
-                
+            <h1 class="postTitle">
+            </h1>
+            <p class="postBody">
             </p>
             <h4>26 July 2020</h4>
             <div class="likeBtn">
@@ -52,7 +45,34 @@
         </div>
         
     </div>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
+    authDomain: "my-brand-irene-c2a80.firebaseapp.com",
+    databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
+    projectId: "my-brand-irene-c2a80",
+    storageBucket: "my-brand-irene-c2a80.appspot.com",
+    messagingSenderId: "981307922858",
+    appId: "1:981307922858:web:e98322b269aa6cf23f73d3",
+    measurementId: "G-3Y9D2K7LVQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const db = firebase.firestore();
+</script>
+    <script src="./blogPage.js"></script>
     <script src="./blog.js"></script>
 </body>
 </html>
