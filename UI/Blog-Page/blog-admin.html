@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
     <link rel="stylesheet" href="./blog.css">
     <title>Blogs Page</title>
 </head>
@@ -22,31 +25,67 @@
                 <li><a href="../Contact-page/contact.html">Contact Me</a></li>
             </ul>
         </div>
-        </nav>
-    <section class="c-body">
-        <div >
-            <h4>20 Jul 2020</h4>
-            <h2>Blogs Title</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio velit reiciendis iure ab veniam deleniti eligendi similique ipsum, hic error dolor inventore perspiciatis pariatur, in odit, non dolore. Et, ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati laborum iste ipsam earum a! Quaerat quam nulla iusto ex facilis amet quia dicta! Magni quibusdam dolorum temporibus placeat! Repellat, maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium ipsam id vel minima recusandae corporis. Et eos asperiores voluptas aperiam voluptatum quae ipsa nobis nemo quam distinctio tenetur, consequatur vel?</p>
-        </div>
-        <div class="btns">
-            <button class="btn" id="edit-btn">Edit</button>
-            <button class="btn" id="dlt-btn">Delete</button>
-        </div>
-        <div>
-            <h4>20 Jul 2020</h4>
-            <h2>Blogs Title</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio velit reiciendis iure ab veniam deleniti eligendi similique ipsum, hic error dolor inventore perspiciatis pariatur, in odit, non dolore. Et, ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati laborum iste ipsam earum a! Quaerat quam nulla iusto ex facilis amet quia dicta! Magni quibusdam dolorum temporibus placeat! Repellat, maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium ipsam id vel minima recusandae corporis. Et eos asperiores voluptas aperiam voluptatum quae ipsa nobis nemo quam distinctio tenetur, consequatur vel?</p>
-        </div>
-        <div class="btns">
-            <button class="btn" id="edit-btn">Edit</button>
-            <button class="btn" id="dlt-btn">Delete</button>
-        </div>
-        <div class="crt-blg">
-            <a href="../Blog-Page/crt-blg.html">Create a Blog Post</a>
-        </div>
-    </section>
+    </nav>
+    <div id="crtBlogs">
 
+        <h3>Create Blogs</h3>
+        <div class="crt-section">
+        <form class="crt-div" id="myForm">
+            <div class="input-group">
+                <h2>Create A Blog Page</h2>
+            </div>
+            <div class="input-group">
+                <label for="">Title</label>
+                <textarea name="title" id="title" cols="28" rows="1" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="">Blog Content</label>
+                <textarea name="content" id="content" cols="28" rows="10" required></textarea>
+            </div>
+            <div id="crtBtn">
+                <button class="btn" id="" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+
+        <ul id="blogsList"></ul>
+    </div>
+    <section class="modal hide">
+        <div class="modal-content">
+            <h3>Update the Blog Post</h3>
+           <div class="input-group edits"> 
+                <label for="title">Title</label>
+                <input type="text" name="title" id="uptTitle">
+            </div>
+            <div class="input-group edits" >
+                <label for="body">Body</label>
+                <textarea name="body" id="uptBlog" cols="30" rows="12"></textarea>
+            </div>  
+            <div class="controlBtns">
+                <button class="btn" id="saveBtn">Save</button>
+                <button class="btn" id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+    </section>  
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
+    authDomain: "my-brand-irene-c2a80.firebaseapp.com",
+    databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
+    projectId: "my-brand-irene-c2a80",
+    storageBucket: "my-brand-irene-c2a80.appspot.com",
+    messagingSenderId: "981307922858",
+    appId: "1:981307922858:web:e98322b269aa6cf23f73d3",
+    measurementId: "G-3Y9D2K7LVQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+        const db = firebase.firestore();
+      </script>
+    <script src="./crud.js"></script>
     <script src="./blog.js"></script>
 </body>
 </html>
