@@ -61,11 +61,11 @@ function addBlogs(doc){
 
         saveBtn.addEventListener('click', e =>{
             e.stopPropagation();
-            console.log(blogId);
             db.collection('blogs').doc(blogId).update({
                title: uptTitle.value,
                body: uptBody.value
             }).then(() =>{
+                alert('Post has been successfully updated');
                 uptForm.className ="Modal hide";
             })
         })
@@ -77,6 +77,7 @@ db.collection('blogs').get().then((snapshot) =>{
     snapshot.docs.forEach(doc =>{
         addBlogs(doc);
         console.log('SENT');
+        
     })
 })
 
@@ -85,7 +86,12 @@ form.addEventListener('submit', (e) => {
     db.collection('blogs').add({
         title: form.title.value,
         body: form.content.value
-    })
+    }).then(() => 
+    {
+        alert('Post has been successfully Added');
+    }
+        
+    )
 
     form.title.value ="";
     form.content.value ="";
