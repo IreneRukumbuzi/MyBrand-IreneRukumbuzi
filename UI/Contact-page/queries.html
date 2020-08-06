@@ -19,30 +19,41 @@
                 <li><a href="../Landing Page/index.html">Home</a></li>
                 <li><a href="../Sign-in Page/sign.html">Sign-in</a></li>
                 <li><a href="../Blog-Page/blog.html">Blogs</a></li>
-                <li><a href="./Contact-page/contact.html">Contact Me</a></li>
+                <li><a href="./contact.html">Contact Me</a></li>
             </ul>
         </div>
         </nav>
     <section class="c-body">
-        <div >
-            <h4>20 Jul 2020</h4>
-            <h2>UserName</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio velit reiciendis iure ab veniam deleniti eligendi similique ipsum, hic error dolor inventore perspiciatis pariatur, in odit, non dolore. Et, ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati laborum iste ipsam earum a! Quaerat quam nulla iusto ex facilis amet quia dicta! Magni quibusdam dolorum temporibus placeat! Repellat, maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium ipsam id vel minima recusandae corporis. Et eos asperiores voluptas aperiam voluptatum quae ipsa nobis nemo quam distinctio tenetur, consequatur vel?</p>
-        </div>
-        <div class="btns">
-            <button class="btn" id="edit-btn">Reply</button>
-        </div>
-        <div>
-            <h4>20 Jul 2020</h4>
-            <h2>UserName</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio velit reiciendis iure ab veniam deleniti eligendi similique ipsum, hic error dolor inventore perspiciatis pariatur, in odit, non dolore. Et, ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati laborum iste ipsam earum a! Quaerat quam nulla iusto ex facilis amet quia dicta! Magni quibusdam dolorum temporibus placeat! Repellat, maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium ipsam id vel minima recusandae corporis. Et eos asperiores voluptas aperiam voluptatum quae ipsa nobis nemo quam distinctio tenetur, consequatur vel?</p>
-        </div>
-        <div class="btns">
-            <button class="btn" id="edit-btn">Reply</button>
-            
-        </div>
+        <li class="queriesList"></li>
     </section>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
+        authDomain: "my-brand-irene-c2a80.firebaseapp.com",
+        databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
+        projectId: "my-brand-irene-c2a80",
+        storageBucket: "my-brand-irene-c2a80.appspot.com",
+        messagingSenderId: "981307922858",
+        appId: "1:981307922858:web:c11945d385ba197a3f73d3",
+        measurementId: "G-JPKXJPQ9Q6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    const db = firebase.firestore();
+    </script>
+
+    <script src="./queries.js"></script>
     <script src="../Blog-Page/blog.js"></script>
 </body>
 </html>

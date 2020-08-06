@@ -17,7 +17,15 @@ const db = firestore.collection("contactData");
 
 const form = document.getElementById('myForm').addEventListener('submit', submitForm);
 const errorMessage = document.getElementById('errorMessage');
+let userPosition;
+console.log(userPosition)
 
+const success = (position) => {
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    userPosition = {lat, long};
+};
+navigator.geolocation.getCurrentPosition(success, console.log);
 
 function submitForm(e){
     e.preventDefault();
@@ -30,9 +38,11 @@ function submitForm(e){
     db.doc().set({
         name: name,
         email: email,
-        message: message
+        message: message,
+        location:userPosition
     }).then(function(){
         console.log('Data Sent');
+        alert('Data has been successfully sent');
         document.getElementById('name').value = "";
         document.getElementById('email').value = "";
         document.getElementById('message').value = "";

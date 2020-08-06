@@ -388,6 +388,21 @@ nav a{
     width: 100%;
 }
 
+.queriesList li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgb(28, 24, 54, .85);
+    border: none;
+    border-radius: 10px;
+}
+
+
+
+
 @media(max-width: 1070px){
     *{
         font-size: 20px;
