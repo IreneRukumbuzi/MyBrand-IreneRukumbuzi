@@ -24,8 +24,8 @@
 
 
 .contents{
-    width: 70vw;
-    margin: 30px 0 0 0;   
+    width: 70%;
+    margin: auto;
 }
 .contents p{
     font-size: 22px;
@@ -54,9 +54,6 @@
     border-radius: 10px;
     background: rgb(28, 24, 54, .85);
     color: white;
-}
-.contents p{
-   padding: 0%;
 }
 .contents h4{
     margin-bottom: 10px;
@@ -101,6 +98,10 @@
     border-radius: 15px;
 }
 
+.commentForm{
+    display: flex;
+    flex-direction: column;
+}
 @media(max-width: 1050px){
    
     .blogBody{

@@ -97,15 +97,15 @@ form.addEventListener('submit', (e) => {
     form.content.value ="";
 })
 
-// db.collection('blogs').onSnapshot(snapshot =>{
-//     let changes = snapshot.docChanges();
-//     changes.forEach(change => {
-//     if(change.type == "added"){
-//         addBlogs(change.doc);
-//     } else if (change.type == "removed"){
-//         let li = blogsList.querySelector('[data-id=' + change.doc.id + ']');
-//         blogsList.removeChild(li);
-//     }
-//     })
-// })
+db.collection('blogs').onSnapshot(snapshot =>{
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+    if(change.type == "added"){
+        addBlogs(change.doc);
+    } else if (change.type == "removed"){
+        let li = blogsList.querySelector('[data-id=' + change.doc.id + ']');
+        blogsList.removeChild(li);
+    }
+    })
+})
 
