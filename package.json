@@ -4,7 +4,9 @@
   "description": "This will be my repository for my brand portfolio and blog posts",
   "main": "index.js",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
+    "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "mongoose": "^5.9.28",
     "nodemon": "^2.0.4"
