@@ -1,12 +1,47 @@
 const Blog = require("../models/blogPost");
 
 exports.getBlogs = async (req,res) =>{
-    const blogs = await Blog.find();
-    res.send({data: blogs});
+    try {
+        const blogs = await Blog.find();
+        res.send({data: blogs});
+    } catch (error) {
+        res.status(404).send("Blogs not found");
+    }
+};
+
+exports.getSpecificBlog = async (req,res) =>{
+    try{
+        const blog = await Blog.findById(req.params.id);
+        res.send({data: blog});
+    } catch {
+        res.status(404).send({error: "Blog not found"});
+    }
 };
 
 exports.createBlog = async (req, res) =>{
     const blog = new Blog(req.body);
     await blog.save();
     res.send({data: blog});
+};
+
+exports.updateBlog = async (req, res) =>{
+    try {
+        const blog = await Blog.findById(req.params.id);
+        Object.assign(blog, req.body);
+        blog.save();
+        res.send({data: blog})
+    } catch (error) {
+        res.status(404).send({error: "Blog not found"});
+    }  
+}
+
+exports.delete = async (req, res) =>{
+    try {
+        const blog = await Blog.findById(req.params.id);
+    await blog.remove();
+    res.send("Post deleted successfully");  
+    } catch (error) {
+        res.status(404).send({error: "Post Not found"});
+    }
+    
 };

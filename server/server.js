@@ -2,8 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const router = require("./routes/users");
-const indexRouter = require("./routes/index");
+const router = require("./routes/index");
 const passport = require("./config/passport")
 const PORT = process.env.PORT || 7000;
 const db = require("./config/keys").MongoURI;
@@ -21,8 +20,7 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/users", router);
-app.use("/", indexRouter);
+app.use("/", router);
 
 console.log("Database connected succesfully...");
 
