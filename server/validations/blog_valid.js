@@ -1,9 +1,11 @@
 const Joi = require("@hapi/joi");
 
-exports.validator = (req, res, next) => {
+exports.blogValidator = (req, res, next) => {
     const schema = Joi.object({
-        email: Joi.string().email().required(),
-        password: Joi.string().min(6).max(12).required()
+        title: Joi.string().min(6).required(),
+        content: Joi.string().min(30).required(),
+        imageUrl: Joi.string().required(),
+        date: Joi.date().iso()
     }) 
     
     const result = schema.validate(req.body);
