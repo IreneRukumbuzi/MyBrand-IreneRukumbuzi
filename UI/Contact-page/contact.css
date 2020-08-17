@@ -3,6 +3,10 @@
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
+    position: relative;
+    top: 50px;
+    margin: 0 70px;
+    overflow: visible;
 }
 
 .got-text{
@@ -69,10 +73,10 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100vw;
-    background-color: rgb(28, 24, 54, .85);
+    background-color: rgb(28, 24, 54);
     height: 40px;
     overflow: hidden;
 }
@@ -122,16 +126,23 @@ img{
     font-size: 18px;
     display: none;
     margin-bottom: 10px;
-    /* transition: all 0.5s ease-in; */
 }
 
 @media (max-width: 600px){
     .contact-section{
         display: flex;
         flex-direction: column;
+        margin: 20px;
     }
     .contact-message{
         font-size: 10px;
+    }
+    .contact-message h2{
+        margin-bottom: 20px;
+    }
+    .contact-form{
+        margin: 40px 40px;
+        padding: 20px 15px;
     }
 }
 

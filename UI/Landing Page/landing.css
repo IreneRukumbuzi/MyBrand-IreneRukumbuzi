@@ -8,6 +8,10 @@
     justify-content: space-around;
     align-items: stretch; 
     overflow: visible;
+    position: relative;
+    top: 20px;
+    margin: 30px auto;
+    padding: 0 40px;
 }
 
 .image-div{
@@ -16,7 +20,6 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    
 }
 
 .image-div .my-profile{
@@ -29,7 +32,6 @@
     background-position: center;
 }
 
-
 .blogs-div h3{
     color: white;
 }
@@ -39,7 +41,6 @@
     text-decoration: none;
     padding: 0.2em;
     border-radius: 10px;
-   
 }
 
 .blogs-div a:hover{
@@ -50,19 +51,6 @@
     display: flex;
     align-items: flex-start;
     align-self: center;
-}
-
-@media(max-width: 1000px){
-    .container{
-        overflow: visible;
-    }
-    .image-div{
-        display: none;
-    }
-
-    .main-section{
-        justify-content: center;
-    }
 }
 
 .main-cards {
@@ -102,4 +90,18 @@
 .card:hover{
     background: linear-gradient( #C4C4C4,#2296D7);
     transform: scale(1.1);
+}
+
+@media(max-width: 768px){
+    .container{
+        overflow: visible;
+    }
+    .image-div{
+        display: none;
+    }
+
+    .main-section{
+        justify-content: center;
+        padding: 10px;
+    }
 }

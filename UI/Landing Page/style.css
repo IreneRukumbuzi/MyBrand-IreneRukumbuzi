@@ -11,7 +11,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .full-height-grow{
@@ -27,15 +27,27 @@ body{
 }
 
 .main-nav li{
-    padding: 1rem; 
+    margin-right: 20px;
 }
 
 .main-nav a{
     color: white;
     text-decoration: none;
-    padding: 2rem;
-    font-size: 1.5em;
+    font-size: 18px;
 }
+
+.brand-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    left: 50px;
+    color: white;
+}
+
 
 .main-nav a:hover {
     color: red;
@@ -46,13 +58,13 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 100px;
+    height: 50px;
+    background: #1C1836;
+    padding: 0 50px;
 }
 
 .container{
     margin: 0 auto;
-    max-width: 1850px;
-    padding: 0 40px;
     flex-grow: 1;
 }
 
@@ -61,7 +73,6 @@ body{
     font-size: 2.8em;
     margin-top: 0;
     margin-bottom: 1.2rem;
-
 }
 
 .main-para{
@@ -85,16 +96,30 @@ body{
 .btn:hover{
     color: red;
 }
+.togglebtn{
+    position: absolute;
+    top: .8rem;
+    right: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
 
 @media(max-width: 600px){
     .container{
         font-size: 10px;
         overflow: visible;
-        margin: 5px;
-        padding: 5px;
     }
     .heading {
-        margin: 0;
+        margin: 0 10px;
     }
     .title{
         font-size: 2em;
@@ -116,12 +141,54 @@ body{
         margin: auto;
         max-width: 90vw;
     }
+    .main-nav a:hover{
+        color: red;
+        cursor: pointer;
+    }
+    .brand-name{
+        left: 20px;
+    }
+    .navLinks ul{
+        position: relative;
+        left: 50px;
+    }
+
+    .togglebtn{
+        display: flex;
+    }
+
     .main-nav ul{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 0.9em;
+        transition: ease-in;
+        position: relative;
+        top: 120px;
+        z-index: 1;
+    }
+    .navLinks{
+        display: none;
+    }
+
+    .navbar{
+        padding: 0;
         height: 60px;
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .main-nav ul{
+        padding: 0;
+        margin: 0;
+        background-color: rgb(28, 24, 54, 1);
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        
+    }
+    .main-nav li{
+        padding: 15px;
+    }
+
+    .active{
+        display: block;
     }
     .btn{
         padding: 0.75rem 1.5rem;

@@ -84,6 +84,11 @@ body{
     background-color: rgb(28, 24, 54, .85);
     bottom: 0;
 }
+
+.main-header{
+    height: 50px;
+}
+
 .footer-nav ul{
     display: flex;
     margin: 0 70px;
@@ -107,29 +112,36 @@ body{
     justify-content: center;
 }
 header{
-    height: 50px;
+    height: 60px;
     display: flex;
     position: absolute;
     top: 0;
     width: 100%;
-    background-color:rgb(28, 24, 54, .85) ;
+    background-color:rgb(28, 24, 54, 1);
 }
-.nav-div{
-    width: 100%;
-    margin: 0 50px;
+.main-nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav{
     display: flex;
     justify-content: space-between;
-    align-items: center;  
-}
-header ul{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    list-style: none;
+    height: 50px;
+    background: #1C1836;
+    padding: 0 50px;
+    width: 100vw;
+}
+
+.main-nav li{
+    margin-right: 20px;
 }
 .brand-name{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 23px;
     text-transform: uppercase;
@@ -166,6 +178,22 @@ h3{
 
 .loggedIn{
     padding: 20px;
+}
+.togglebtn{
+    position: absolute;
+    top: .8rem;
+    right: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
 }
 
 @media (max-width: 600px){
@@ -216,5 +244,58 @@ h3{
     }
     .btn{
         margin: 20px;
+    }
+    .brand-name{
+        display: flex;
+        justify-content: flex-start;
+        top: 10px;
+        left: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .togglebtn{
+        display: flex;
+    }
+
+    .main-nav ul{
+        display: flex;
+        justify-content: center;
+        transition: ease-in;
+        z-index: 1;
+    }
+    .navLinks{
+        display: none;
+        justify-content: center;
+        position: relative;
+        right: 94px;
+        top: 130px;
+        z-index: 1;
+    }
+    
+    .navbar{
+        padding: 0;
+        height: 60px;
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .main-nav ul{
+        padding: 0;
+        margin: 0;
+        background-color: rgb(28, 24, 54, 1);
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        
+    }
+    .main-nav li{
+        padding: 15px;
+    }
+    .main-nav{
+        padding: 0 20px;
+    }
+
+    .active{
+        display: block;
     }
 }
