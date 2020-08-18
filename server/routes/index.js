@@ -1,12 +1,12 @@
 import express from 'express';
 import passport from 'passport';
-import validatorUser from '../validations/user_valid';
+import validatorUser from '../middlewares/validations/user_valid';
 import blogsController from '../controllers/blogs';
 import queriesController from '../controllers/queries';
-import queryValidator from '../validations/query_valid';
-import authValid from '../validations/isAuth';
-import blogsValidator from '../validations/blog_valid';
-import commentValidator from '../validations/commentValid';
+import queryValidator from '../middlewares/validations/query_valid';
+import authValid from '../middlewares/validations/isAuth';
+import blogsValidator from '../middlewares/validations/blog_valid';
+import commentValidator from '../middlewares/validations/commentValid';
 
 const router = express.Router();
 
