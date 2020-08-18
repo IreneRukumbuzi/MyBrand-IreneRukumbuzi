@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "email-validator": "^2.0.4",
@@ -16,9 +17,16 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
   "scripts": {
-    "dev": "nodemon -w server server/server.js"
+    "dev": "nodemon --exec babel-node server/server.js"
   },
   "repository": {
     "type": "git",

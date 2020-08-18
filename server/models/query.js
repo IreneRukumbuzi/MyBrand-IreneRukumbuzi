@@ -1,18 +1,18 @@
-const mongoose = require("mongoose");
-const Joi = require("@hapi/joi");
+import mongoose from 'mongoose';
 
-    const queriesSchema = new mongoose.Schema({
-        name: { type: String,
-                required: true
-        },
-        email: { type: String,
-            required: true   
-        },
-        message: { type: String,
-            required: true
-        }
-    });
-    
-    
-    module.exports = mongoose.model("query", queriesSchema);
+const queriesSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
+});
 
+export default mongoose.model('query', queriesSchema);
