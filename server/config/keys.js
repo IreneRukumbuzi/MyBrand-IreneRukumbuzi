@@ -1,3 +1,3 @@
-module.exports ={
-    MongoURI: "mongodb://localhost:27017/MyBlog"
-}
+export default {
+  MongoURI: 'mongodb://localhost:27017/MyBlog',
+};
