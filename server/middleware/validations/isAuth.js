@@ -17,6 +17,6 @@ exports.verifyToken = (req, res, next) => {
     req.verifiedUser = verifiedUser;
     next();
   } catch (error) {
-    res.status(403).send({ error: 'Invalid' });
+    res.status(403).send(error);
   }
 };
