@@ -35,16 +35,6 @@ exports.updateBlog = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
-  try {
-    const blog = await Blog.findById(req.params.id);
-    await blog.remove();
-    res.send('Post deleted successfully');
-  } catch (error) {
-    res.status(404).send({ error: 'Post Not found' });
-  }
-};
-
 exports.comments = async (req, res) => {
   try {
     await Blog.updateOne({ _id: req.params.id },
@@ -61,5 +51,15 @@ exports.likes = async (req, res) => {
     res.status(200).send({ message: 'Blog liked' });
   } catch (error) {
     res.send('Blog not found');
+  }
+};
+
+exports.delete = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    await blog.remove();
+    res.send('Post deleted successfully');
+  } catch (error) {
+    res.status(404).send({ error: 'Post Not found' });
   }
 };
