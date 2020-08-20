@@ -11,6 +11,7 @@ import commentValidator from '../middleware/validations/commentValid';
 
 const router = express.Router();
 
+router.get('/', userController.landingMessage);
 router.get('/blogs', blogsController.getBlogs);
 router.get('/blogs/:id', blogsController.getSpecificBlog);
 router.delete('/blogs/:id', authValid.verifyToken, blogsController.delete);
@@ -24,8 +25,8 @@ router.post('/blogs', authValid.verifyToken, blogsValidator.blogValidator, blogs
 router.post('/login', validatorUser.validator, passport.authenticate('local'), userController.pass);
 
 router.get('/logout', (req, res) => {
-  req.logout();
-  res.send('logged out successfully');
+  req.logOut();
+  res.send({ message: 'Logged out successfully' });
 });
 
 router.use('/*', (req, res) => {

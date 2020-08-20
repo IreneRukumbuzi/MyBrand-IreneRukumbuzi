@@ -5,12 +5,12 @@ import bodyParser from 'body-parser';
 import passport from './config/passport';
 import router from './routes/index';
 import 'dotenv/config';
+import './seeds/admin';
 
 const PORT = process.env.PORT || 7000;
 const db = process.env.MongoURI;
 
 const app = express();
-require('./seeds/admin');
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
   console.log('Database connected succesfully...');

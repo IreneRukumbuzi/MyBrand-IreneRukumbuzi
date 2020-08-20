@@ -1,6 +1,7 @@
 node_modules/
-.nyc_output
+.nyc_output/
 package-lock.json
 .vscode/
 .coveralls.yml
 .env
+coverage/
