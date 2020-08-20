@@ -4,6 +4,8 @@
   "description": "This will be my repository for my brand portfolio and blog posts",
   "main": "server.js",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/register": "^7.10.5",
     "@hapi/joi": "^17.1.1",
     "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
@@ -21,12 +23,19 @@
     "@babel/core": "^7.11.1",
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.1.0",
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node server/server.js"
+    "dev": "nodemon --exec babel-node server/server.js",
+    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register server/tests/index.test --timeout 10000 --exit || true",
+    "posttest": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",

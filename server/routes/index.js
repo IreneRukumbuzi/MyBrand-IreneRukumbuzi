@@ -1,12 +1,13 @@
 import express from 'express';
 import passport from 'passport';
-import validatorUser from '../middlewares/validations/user_valid';
 import blogsController from '../controllers/blogs';
 import queriesController from '../controllers/queries';
-import queryValidator from '../middlewares/validations/query_valid';
-import authValid from '../middlewares/validations/isAuth';
-import blogsValidator from '../middlewares/validations/blog_valid';
-import commentValidator from '../middlewares/validations/commentValid';
+import userController from '../controllers/user';
+import validatorUser from '../middleware/validations/user_valid';
+import queryValidator from '../middleware/validations/query_valid';
+import authValid from '../middleware/validations/isAuth';
+import blogsValidator from '../middleware/validations/blog_valid';
+import commentValidator from '../middleware/validations/commentValid';
 
 const router = express.Router();
 
@@ -20,11 +21,15 @@ router.get('/queries', authValid.verifyToken, queriesController.storeQueries);
 router.get('/queries/:id', authValid.verifyToken, queriesController.getOneQuery);
 router.post('/queries', queryValidator.validator, queriesController.createQuery);
 router.post('/blogs', authValid.verifyToken, blogsValidator.blogValidator, blogsController.createBlog);
-router.post('/login', validatorUser.validator, passport.authenticate('local'), authValid.pass);
+router.post('/login', validatorUser.validator, passport.authenticate('local'), userController.pass);
 
 router.get('/logout', (req, res) => {
   req.logout();
   res.send('logged out successfully');
+});
+
+router.use('/*', (req, res) => {
+  res.status(405).send({ message: 'method not allowed' });
 });
 
 export default router;

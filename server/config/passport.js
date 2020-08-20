@@ -28,4 +28,4 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-module.exports = passport;
+export default passport;

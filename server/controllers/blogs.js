@@ -1,12 +1,8 @@
 import Blog from '../models/blogPost';
 
 exports.getBlogs = async (req, res) => {
-  try {
-    const blogs = await Blog.find();
-    res.send({ data: blogs });
-  } catch (error) {
-    res.status(404).send('Blogs not found');
-  }
+  const blogs = await Blog.find();
+  res.send({ data: blogs });
 };
 
 exports.getSpecificBlog = async (req, res) => {
@@ -35,23 +31,13 @@ exports.updateBlog = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
-  try {
-    const blog = await Blog.findById(req.params.id);
-    await blog.remove();
-    res.send('Post deleted successfully');
-  } catch (error) {
-    res.status(404).send({ error: 'Post Not found' });
-  }
-};
-
 exports.comments = async (req, res) => {
   try {
     await Blog.updateOne({ _id: req.params.id },
       { $push: { comments: { name: req.body.name, comment: req.body.comment } } });
     res.status(200).send({ message: 'Comment Added' });
   } catch (error) {
-    res.send('Not found');
+    res.status(404).send({ error: 'Blog not found' });
   }
 };
 
@@ -60,6 +46,16 @@ exports.likes = async (req, res) => {
     await Blog.updateOne({ _id: req.params.id }, { $inc: { likes: 1 } });
     res.status(200).send({ message: 'Blog liked' });
   } catch (error) {
-    res.send('Blog not found');
+    res.status(404).send('Blog not found');
+  }
+};
+
+exports.delete = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    await blog.remove();
+    res.send('Post deleted successfully');
+  } catch (error) {
+    res.status(404).send({ error: 'Post Not found' });
   }
 };

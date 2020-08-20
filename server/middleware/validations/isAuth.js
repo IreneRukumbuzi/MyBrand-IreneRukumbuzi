@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import User from '../../models/User';
 
 exports.userAuthent = async (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -18,20 +17,6 @@ exports.verifyToken = (req, res, next) => {
     req.verifiedUser = verifiedUser;
     next();
   } catch (error) {
-    res.status(403).send({ error: 'Invalid' });
+    res.status(403).send(error);
   }
-};
-
-exports.pass = (req, res) => {
-  req.login(req.body, (error) => {
-    User.findOne({ email: req.body.email });
-    const token = jwt.sign({ admin: User }, 'secret');
-    if (error) res.send('Wrong Password');
-    else {
-      res.status(200).send({
-        status: 200,
-        token,
-      });
-    }
-  });
 };

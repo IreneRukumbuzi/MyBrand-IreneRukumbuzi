@@ -1,11 +1,10 @@
 import Joi from '@hapi/joi';
 
-exports.blogValidator = (req, res, next) => {
+exports.validator = (req, res, next) => {
   const schema = Joi.object({
-    title: Joi.string().min(6).required(),
-    content: Joi.string().min(30).required(),
-    imageUrl: Joi.string().required(),
-    date: Joi.date().iso(),
+    name: Joi.string().trim().required(),
+    email: Joi.string().trim().email().required(),
+    message: Joi.string().trim().min(10).required(),
   });
 
   const result = schema.validate(req.body);

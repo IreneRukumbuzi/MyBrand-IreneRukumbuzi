@@ -12,6 +12,7 @@ const app = express();
 require('./seeds/admin');
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+  console.log('Database connected succesfully...');
   app.use(express.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(session({
@@ -22,8 +23,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then((
   app.use(passport.initialize());
   app.use(passport.session());
   app.use('/', router);
-
-  console.log('Database connected succesfully...');
 }).catch((err) => {
   console.log(`${err}`);
 });
@@ -31,3 +30,4 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then((
 app.listen(PORT, () => {
   console.log(`Server has started on port ${PORT}...`);
 });
+export default app;
