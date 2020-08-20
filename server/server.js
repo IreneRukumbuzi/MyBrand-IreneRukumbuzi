@@ -4,9 +4,10 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import passport from './config/passport';
 import router from './routes/index';
+import 'dotenv/config';
 
 const PORT = process.env.PORT || 7000;
-const db = require('./config/keys').default.MongoURI;
+const db = process.env.MongoURI;
 
 const app = express();
 require('./seeds/admin');
