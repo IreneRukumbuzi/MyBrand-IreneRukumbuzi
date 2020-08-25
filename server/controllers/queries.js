@@ -1,4 +1,4 @@
-import Query from '../models/query';
+import Query from '../models/Query';
 
 exports.storeQueries = async (req, res) => {
   const queries = await Query.find();

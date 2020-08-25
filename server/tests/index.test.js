@@ -85,7 +85,7 @@ describe('My Brand IR Api', () => {
           imageUrl: 'https://picsum.photos/600/300',
         })
         .end((err, response) => {
-          response.should.have.status(200);
+          response.should.have.status(201);
           blogId = response.body.data._id;
           done();
         });
@@ -235,7 +235,7 @@ describe('My Brand IR Api', () => {
         .delete(`/blogs/${blogId}`)
         .set('token', adminToken)
         .end((err, response) => {
-          response.should.have.status(200);
+          response.should.have.status(204);
           done();
         });
     });
