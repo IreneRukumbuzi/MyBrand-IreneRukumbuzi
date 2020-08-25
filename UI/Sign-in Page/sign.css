@@ -286,7 +286,9 @@ h3{
         flex-direction: column;
         align-items: center;
         width: 100vw;
-        
+        position: relative;
+        top: -6px;
+        right: 6px;
     }
     .main-nav li{
         padding: 15px;

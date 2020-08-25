@@ -1,6 +1,10 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
 
+exports.landingMessage = (req, res) => {
+  res.send({ message: 'Welcome to my Portfolio' });
+};
+
 exports.pass = (req, res) => {
   req.login(req.body, (error) => {
     User.findOne({ email: req.body.email });

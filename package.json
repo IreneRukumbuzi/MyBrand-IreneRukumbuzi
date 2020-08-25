@@ -4,12 +4,17 @@
   "description": "This will be my repository for my brand portfolio and blog posts",
   "main": "server.js",
   "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
     "@babel/register": "^7.10.5",
     "@hapi/joi": "^17.1.1",
     "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
@@ -17,12 +22,10 @@
     "mongoose": "^5.9.28",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "swagger-ui": "^3.32.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@babel/node": "^7.10.5",
-    "@babel/preset-env": "^7.11.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "coveralls": "^3.1.0",
@@ -33,7 +36,7 @@
     "nyc": "^15.1.0"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node server/server.js",
+    "start": "nodemon --exec babel-node server/server.js",
     "test": "nyc --reporter=html --reporter=text mocha --require @babel/register server/tests/index.test --timeout 10000 --exit || true",
     "posttest": "nyc report --reporter=text-lcov | coveralls"
   },
