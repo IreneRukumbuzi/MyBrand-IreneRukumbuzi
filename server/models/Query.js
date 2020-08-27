@@ -15,4 +15,4 @@ const queriesSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('query', queriesSchema);
+export default mongoose.model('Query', queriesSchema);

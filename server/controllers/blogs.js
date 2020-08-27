@@ -1,14 +1,14 @@
-import Blog from '../models/blogPost';
+import Blog from '../models/Blog';
 
 exports.getBlogs = async (req, res) => {
   const blogs = await Blog.find();
-  res.send({ data: blogs });
+  res.status(200).send({ data: blogs });
 };
 
 exports.getSpecificBlog = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
-    res.send({ data: blog });
+    res.status(200).send({ data: blog });
   } catch {
     res.status(404).send({ error: 'Blog not found' });
   }
@@ -17,7 +17,7 @@ exports.getSpecificBlog = async (req, res) => {
 exports.createBlog = async (req, res) => {
   const blog = new Blog(req.body);
   await blog.save();
-  res.send({ data: blog });
+  res.status(201).send({ data: blog });
 };
 
 exports.updateBlog = async (req, res) => {
@@ -46,7 +46,7 @@ exports.likes = async (req, res) => {
     await Blog.updateOne({ _id: req.params.id }, { $inc: { likes: 1 } });
     res.status(200).send({ message: 'Blog liked' });
   } catch (error) {
-    res.status(404).send('Blog not found');
+    res.status(404).send({ message: 'Blog not found' });
   }
 };
 
@@ -54,7 +54,7 @@ exports.delete = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     await blog.remove();
-    res.send('Post deleted successfully');
+    res.status(204).send({ message: 'Post deleted successfully' });
   } catch (error) {
     res.status(404).send({ error: 'Post Not found' });
   }
