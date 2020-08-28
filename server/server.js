@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import passport from './config/passport';
 import router from './routes/index';
@@ -14,7 +15,26 @@ dotenv.config();
 const PORT = process.env.PORT || 7000;
 
 const app = express();
+app.use(cors());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use(
+  cors({
+    origin: '*',
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
+);
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept',
+  );
+  next();
+});
 
 mongoose
   .connect(process.env.MongoURI, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
