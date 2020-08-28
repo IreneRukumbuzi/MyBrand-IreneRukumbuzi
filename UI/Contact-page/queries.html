@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Blog-Page/blog.css">
-    <title>Blogs Page</title>
+    <title>Queries</title>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="brand-name">Irene</div>
@@ -22,11 +24,11 @@
                 <li><a href="./contact.html">Contact Me</a></li>
             </ul>
         </div>
-        </nav>
+    </nav>
     <section class="c-body">
         <li class="queriesList"></li>
     </section>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
 
@@ -35,25 +37,26 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
     <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
-        authDomain: "my-brand-irene-c2a80.firebaseapp.com",
-        databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
-        projectId: "my-brand-irene-c2a80",
-        storageBucket: "my-brand-irene-c2a80.appspot.com",
-        messagingSenderId: "981307922858",
-        appId: "1:981307922858:web:c11945d385ba197a3f73d3",
-        measurementId: "G-JPKXJPQ9Q6"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
+            authDomain: "my-brand-irene-c2a80.firebaseapp.com",
+            databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
+            projectId: "my-brand-irene-c2a80",
+            storageBucket: "my-brand-irene-c2a80.appspot.com",
+            messagingSenderId: "981307922858",
+            appId: "1:981307922858:web:c11945d385ba197a3f73d3",
+            measurementId: "G-JPKXJPQ9Q6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
 
-    const db = firebase.firestore();
+        const db = firebase.firestore();
     </script>
 
     <script src="./queries.js"></script>
     <script src="../Blog-Page/blog.js"></script>
 </body>
+
 </html>

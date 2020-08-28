@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./contact.css">
     <link rel="stylesheet" href="../Landing Page/style.css">
-    <title>Contact Page</title> 
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Contact Page</title>
 </head>
-<body >
+
+<body>
     <div class="container full-height-grow">
         <header class="main-header">
             <nav class="main-nav">
                 <div class="brand-name">Irene</div>
-            <a href="#" class="togglebtn">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-            <div class="navLinks">
-                <ul>    
-                    <li><a href="../Landing Page/index.html">Home</a></li>
-                    <li><a href="../Sign-in Page/sign.html">Sign in</a></li>
-                    <li><a href="../Blog-Page/blog.html">Blogs</a></li>
-                    <li><a href="../Contact-page/contact.html">Contact Me</a></li>
-                </ul>
-            </div>
+                <a href="#" class="togglebtn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
+                <div class="navLinks">
+                    <ul>
+                        <li><a href="../Landing Page/index.html">Home</a></li>
+                        <li><a href="../Sign-in Page/sign.html">Sign in</a></li>
+                        <li><a href="../Blog-Page/blog.html">Blogs</a></li>
+                        <li><a href="../Contact-page/contact.html">Contact Me</a></li>
+                    </ul>
+                </div>
             </nav>
         </header>
-    <section class="contact-section">
-        <div class="contact-message">
-            <h2> <span class="got-text">Got any Question?</span> I would love to hear from you. Leave a message and I will get back to you.</h2>
-        </div>
-        <form class="contact-form" id="myForm">
-            <div id="errorMessage"></div>
-            <div class="input-group">
-                <label for="name">Name</label>
-                <input type="name" name="name" class="inputs-1" id="name" placeholder="Name" required>
+        <section class="contact-section">
+            <div class="contact-message">
+                <h2> <span class="got-text">Got any Question?</span> I would love to hear from you. Leave a message and
+                    I will get back to you.</h2>
             </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" class="inputs-2" id="email" placeholder="some@xyz.com" required>
-            </div>
-            <div class="input-group">
-                <label for="name">Message</label>
-                <textarea name="message" id="message" class="msg" cols="30" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="input-group">
-                <button type="submit" class="c-btn">Submit</button>
-            </div>
-        </form>
-    </section>
+            <form class="contact-form" id="myForm">
+                <div id="errorMessage"></div>
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="name" name="name" class="inputs-1" id="name" placeholder="Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="inputs-2" id="email" placeholder="some@xyz.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="name">Message</label>
+                    <textarea name="message" id="message" class="msg" cols="30" rows="5" placeholder="Message"
+                        required></textarea>
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="c-btn">Submit</button>
+                </div>
+            </form>
+        </section>
     </div>
 
     <footer>
@@ -67,11 +72,23 @@
             </ul>
         </nav>
     </footer>
+    <script>
+        function submitQuery() {
+            axios.get('https://mybrandirene.herokuapp.com/blogs')
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
 
+        document.querySelector('.c-btn').addEventListener('click', submitQuery);
+    </script>
+
+    <!-- 
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
-    <script src="./contact.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script> -->
+    <!-- <script src="./contact.js"></script> -->
     <script src="../Landing Page/landing.js"></script>
+    <!-- <script src="./contact.main.js"></script> -->
 </body>
+
 </html>
