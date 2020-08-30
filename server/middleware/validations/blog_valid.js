@@ -4,7 +4,7 @@ exports.blogValidator = (req, res, next) => {
   const schema = Joi.object({
     title: Joi.string().trim().min(6).required(),
     content: Joi.string().trim().min(30).required(),
-    imageUrl: Joi.string().trim().required(),
+    imageUrl: Joi.string().uri().trim().required(),
     date: Joi.date().iso(),
   });
 
