@@ -120,10 +120,10 @@ img{
 
 .contact-form #errorMessage {
     color: white;
-    background: rgb(80, 39, 39);
+    background: green; 
     text-align: center;
-    padding: 10px;
-    font-size: 18px;
+    padding: 5px;
+    font-size: 16px;
     display: none;
     margin-bottom: 10px;
 }

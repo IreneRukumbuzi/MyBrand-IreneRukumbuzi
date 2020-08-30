@@ -1,36 +1,33 @@
+document.querySelector('.container').style.display = 'block';
+document.querySelector('#admin-div').style.display = 'none';
 
- firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-     document.querySelector('.container').style.display ="none";
-     document.querySelector('#admin-div').style.display ="block"; 
+function login(e) {
+  e.preventDefault();
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
 
-    } else {
-      // No user is signed in.
-      document.querySelector('.container').style.display ="block";
-      document.querySelector('#admin-div').style.display ="none";
-    }
-  });
-
-function login(){
- 
-  var email = document.querySelector('#email').value;
-  var password = document.querySelector('#password').value;
-
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    
-      alert("error: " + errorMessage);
-    
-  });
+  axios.post('https://mybrandirene.herokuapp.com/login', {
+    email,
+    password,
+  })
+    .then((res) => {
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('#admin-div').style.display = 'block';
+      localStorage.setItem('token', res.data.token);
+      console.log(localStorage.token);
+      console.log(res);
+    })
+    .catch((err) => console.log(err));
 }
+const signBtn = document.getElementById('signBtn').addEventListener('click', login);
 
-function logout(){
-  firebase.auth().signOut();
-}
-  
-
-
+const logOut = document.getElementById('logOutBtn').addEventListener('click', () => {
+  axios.get('https://mybrandirene.herokuapp.com/logout')
+    .then((res) => {
+      console.log(res);
+      document.querySelector('.container').style.display = 'block';
+      document.querySelector('#admin-div').style.display = 'none';
+      localStorage.setItem('token', null);
+    })
+    .catch((err) => console.log(err));
+});

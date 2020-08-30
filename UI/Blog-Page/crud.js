@@ -3,109 +3,117 @@ const form = document.querySelector('#myForm');
 const uptForm = document.querySelector('.modal');
 const saveBtn = document.querySelector('#saveBtn');
 const cancelBtn = document.querySelector('#cancelBtn');
-let blogId;
+const alertMessage = document.getElementById('alertMessage');
 
-function addBlogs(doc){
-    let li = document.createElement('li');
-    let title = document.createElement('h3');
-    // let cover = document.createElement('img');
-    let blogBody = document.createElement('p');
-    let rel_date = document.createElement('h5');
-    let dlt = document.createElement('button');
-    let upt = document.createElement('button');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
+  axios.post('https://mybrandirene.herokuapp.com/blogs', {
+    title: form.title.value,
+    content: form.content.value,
+    imageUrl: form.imageUrl.value,
+  }, {
+    headers: {
+      token: localStorage.getItem('token'),
+    },
+  })
+    .then((res) => {
+      console.log(res);
+      alertMessage.style.visibility = 'visible';
 
-    li.setAttribute('data-id', doc.id);
-    title.textContent = doc.data().title;
-    blogBody.textContent = doc.data().body;
-    rel_date.textContent = doc.data().date;
-    dlt.className ="btn dltBtn";
-    dlt.textContent = "Delete";
-    upt.className ="btn";
-    upt.textContent ="Update";
+      form.title.value = '';
+      form.content.value = '';
+      form.imageUrl.value = '';
+    })
+    .catch((err) => {
+      console.log(err);
+      alertMessage.style.visibility = 'visible';
+      alertMessage.style.backgroundColor = '#a71414';
+      alertMessage.innerHTML = 'Not created!, Check inputs';
+    });
+});
+
+const displayBlogs = (allBlogs) => {
+  allBlogs.forEach((blog) => {
+    const li = document.createElement('li');
+    const title = document.createElement('h3');
+    const blogBody = document.createElement('p');
+    const dlt = document.createElement('button');
+    const upt = document.createElement('button');
+
+    li.setAttribute('data-id', blog._id);
+    title.textContent = blog.title;
+    blogBody.textContent = blog.content;
+    dlt.className = 'btn dltBtn';
+    dlt.textContent = 'Delete';
+    upt.className = 'btn';
+    upt.textContent = 'Update';
+    dlt.setAttribute('data-id', blog._id);
+    upt.setAttribute('data-id', blog._id);
+    console.log(blog._id);
 
     li.appendChild(title);
     li.appendChild(blogBody);
-    li.appendChild(rel_date);
     li.appendChild(dlt);
     li.appendChild(upt);
-    
 
     blogsList.appendChild(li);
 
-    //Deleting BlogPosts
+    dlt.addEventListener('click', (e) => {
+      const blogId = e.target.parentElement.getAttribute('data-id');
+      axios.delete(`https://mybrandirene.herokuapp.com/blogs/${blogId}`, {
+        headers: {
+          token: localStorage.getItem('token'),
+        },
+      }).then((res) => {
+        console.log(res);
+        alert('Blog Deleted Successfully');
+      })
+        .catch((err) => console.log(err));
+    });
 
-    dlt.addEventListener('click', (e) =>{
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute('data-id');
-        db.collection('blogs').doc(id).delete();
+    upt.addEventListener('click', (e) => {
+      uptForm.className = 'modal';
+      const uptTitle = document.querySelector('#uptTitle');
+      const uptBody = document.querySelector('#uptBlog');
+
+      uptTitle.value = title.textContent;
+      uptBody.value = blogBody.textContent;
+
+      const blogId = e.target.parentElement.getAttribute('data-id');
+
+      cancelBtn.addEventListener('click', (eve) => {
+        eve.stopPropagation();
+        uptForm.className = 'modal hide';
+      });
+
+      saveBtn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+
+        axios
+          .patch(`https://mybrandirene.herokuapp.com/blogs/${blogId}`, {
+            title: uptTitle.value,
+            content: uptBody.value,
+          }, {
+            headers: {
+              token: localStorage.getItem('token'),
+            },
+          }).then((res) => {
+            console.log(res);
+            uptForm.className = 'Modal hide';
+            alert('Blog Updated successfully');
+          })
+          .catch((err) => console.log(err));
+      });
+    });
+  });
+};
+window.addEventListener('load', () => {
+  axios
+    .get('https://mybrandirene.herokuapp.com/blogs')
+    .then((res) => {
+      const allBlogs = res.data.data;
+      displayBlogs(allBlogs);
     })
-
-    // Updating the BlogPosts
-
-    upt.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        uptForm.className ="modal";
-        const uptTitle = document.querySelector('#uptTitle');
-        const uptBody = document.querySelector('#uptBlog');
-
-        uptTitle.value = title.textContent;
-        uptBody.value = blogBody.textContent;
-
-        blogId = e.target.parentElement.getAttribute('data-id');
-
-        cancelBtn.addEventListener('click', (e)=>{
-            e.stopPropagation();
-            uptForm.className = "modal hide";
-        });
-
-        saveBtn.addEventListener('click', e =>{
-            e.stopPropagation();
-            db.collection('blogs').doc(blogId).update({
-               title: uptTitle.value,
-               body: uptBody.value
-            }).then(() =>{
-                alert('Post has been successfully updated');
-                uptForm.className ="Modal hide";
-            })
-        })
-
-    })
-}
-
-db.collection('blogs').get().then((snapshot) =>{
-    snapshot.docs.forEach(doc =>{
-        addBlogs(doc);
-        console.log('SENT');
-        
-    })
-})
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    db.collection('blogs').add({
-        title: form.title.value,
-        body: form.content.value
-    }).then(() => 
-    {
-        alert('Post has been successfully Added');
-    }
-        
-    )
-
-    form.title.value ="";
-    form.content.value ="";
-})
-
-db.collection('blogs').onSnapshot(snapshot =>{
-    let changes = snapshot.docChanges();
-    changes.forEach(change => {
-    if(change.type == "added"){
-        addBlogs(change.doc);
-    } else if (change.type == "removed"){
-        let li = blogsList.querySelector('[data-id=' + change.doc.id + ']');
-        blogsList.removeChild(li);
-    }
-    })
-})
-
+    .catch((err) => console.log(err));
+});

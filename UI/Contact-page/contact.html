@@ -22,7 +22,7 @@
                 </a>
                 <div class="navLinks">
                     <ul>
-                        <li><a href="../Landing Page/index.html">Home</a></li>
+                        <li><a href="../../index.html">Home</a></li>
                         <li><a href="../Sign-in Page/sign.html">Sign in</a></li>
                         <li><a href="../Blog-Page/blog.html">Blogs</a></li>
                         <li><a href="../Contact-page/contact.html">Contact Me</a></li>
@@ -51,7 +51,7 @@
                         required></textarea>
                 </div>
                 <div class="input-group">
-                    <button type="submit" class="c-btn">Submit</button>
+                    <button type="submit" class="c-btn" id="submitQuery">Submit</button>
                 </div>
             </form>
         </section>
@@ -72,23 +72,8 @@
             </ul>
         </nav>
     </footer>
-    <script>
-        function submitQuery() {
-            axios.get('https://mybrandirene.herokuapp.com/blogs')
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
-        }
-
-        document.querySelector('.c-btn').addEventListener('click', submitQuery);
-    </script>
-
-    <!-- 
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script> -->
-    <!-- <script src="./contact.js"></script> -->
+    <script src="./contact-main.js"></script>
     <script src="../Landing Page/landing.js"></script>
-    <!-- <script src="./contact.main.js"></script> -->
 </body>
 
 </html>

@@ -1,40 +1,44 @@
 const cardsContainer = document.querySelector('.cards_container');
 
-const displayBlogs = (blogs) => {
-    blogs.forEach(blog => {
-        const blogData = blog.data()
-        const blogCard = document.createElement('div')
-        blogCard.setAttribute('class', 'card');
-        const inBlogHTML =
-         `
+const displayBlogs = (allBlogs) => {
+  allBlogs.forEach((blogData) => {
+    const blogCard = document.createElement('div');
+    blogCard.setAttribute('class', 'card');
+    const inBlogHTML = `
         <div class="image-div">
-                <img src="./Images/2019_11_22_07_41_IMG_1023.JPG" alt="">
+                <img src="${blogData.imageUrl}" alt="">
             </div>
             <div class="card-body">
-                <span>4 Days Ago</span>
+                <span>${new Date(blogData.date).toDateString()}</span>
                 <h3>${blogData.title}</h3>
-                <p>${blogData.body.slice(0, 80)} ...</p>
+                <p>${blogData.content.slice(0, 110)} ...</p>
             </div>
             
             <div class="rm-btn">
-            <p  class="rm-btns">Read More</p>
+            <p  class="rm-btns" data-key=${blogData._id}>Read More</p>
             </div>
         </div>
-        `
-        blogCard.innerHTML = inBlogHTML;
-        cardsContainer.appendChild(blogCard)
+        `;
+    blogCard.innerHTML = inBlogHTML;
+    cardsContainer.appendChild(blogCard);
 
-        const readMore = blogCard.querySelector('.rm-btns')
-        readMore.addEventListener('click', (e) => {
-            localStorage.setItem('blog-id', blog.id)
-            window.location.assign('./blogPage.html')
-        })
+    const readMores = blogCard.querySelectorAll('.rm-btns');
+    readMores.forEach((readMore) => {
+      readMore.addEventListener('click', (e) => {
+        const { key } = e.target.dataset;
+        localStorage.setItem('blogId', key);
+        window.location.assign('./blogPage.html');
+      });
+    });
+  });
+};
+
+window.addEventListener('load', () => {
+  axios
+    .get('https://mybrandirene.herokuapp.com/blogs')
+    .then((res) => {
+      const allBlogs = res.data.data;
+      displayBlogs(allBlogs);
     })
-}
-
-db.collection('blogs').get()
-.then((snapshot) => {
-    const data = snapshot.docs;
-    
-    displayBlogs(data)
-})
+    .catch((err) => console.log(err));
+});

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./blog.css">
+    <link rel="stylesheet" href="./alert.css">
     <title>Blogs Page</title>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="brand-name">Irene</div>
@@ -19,7 +20,7 @@
         </a>
         <div class="main-nav">
             <ul>
-                <li><a href="../Landing Page/index.html">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../Sign-in Page/sign.html">Sign-in</a></li>
                 <li><a href="../Blog-Page/blog.html">Blogs</a></li>
                 <li><a href="../Contact-page/contact.html">Contact Me</a></li>
@@ -30,62 +31,53 @@
 
         <h3>Create Blogs</h3>
         <div class="crt-section">
-        <form class="crt-div" id="myForm">
-            <div class="input-group">
-                <h2>Create A Blog Page</h2>
-            </div>
-            <div class="input-group">
-                <label for="">Title</label>
-                <textarea name="title" id="title" cols="28" rows="1" required></textarea>
-            </div>
-            <div class="input-group">
-                <label for="">Blog Content</label>
-                <textarea name="content" id="content" cols="28" rows="10" required></textarea>
-            </div>
-            <div id="crtBtn">
-                <button class="btn" id="" type="submit">Post</button>
-            </div>
-        </form>
-    </div>
+            <form class="crt-div" id="myForm">
+                <div class="input-group">
+                    <h2>Create A Blog Page</h2>
+                </div>
+                <div class="input-group">
+                    <label for="">Title</label>
+                    <textarea name="title" id="title" cols="28" rows="1" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="">Image Link</label>
+                    <textarea name="imageUrl" id="imageUrl" cols="18" rows="2" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="">Blog Content</label>
+                    <textarea name="content" id="content" cols="28" rows="10" required></textarea>
+                </div>
+                <div id="crtBtn">
+                    <button class="btn" id="crtPostBtn" type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+        <p id="alertMessage">
+            Blog Successfully Created!
+        </p>
 
         <ul id="blogsList"></ul>
     </div>
     <section class="modal hide">
         <div class="modal-content">
             <h3>Update the Blog Post</h3>
-           <div class="input-group edits"> 
-                <label for="title">Title</label>
+            <div class="input-group edits">
+                <label for="">Title</label>
                 <input type="text" name="title" id="uptTitle">
             </div>
-            <div class="input-group edits" >
-                <label for="body">Body</label>
+            <div class="input-group edits">
+                <label for="">Body</label>
                 <textarea name="body" id="uptBlog" cols="30" rows="12"></textarea>
-            </div>  
+            </div>
             <div class="controlBtns">
                 <button class="btn" id="saveBtn">Save</button>
                 <button class="btn" id="cancelBtn">Cancel</button>
             </div>
         </div>
-    </section>  
+    </section>
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
-    authDomain: "my-brand-irene-c2a80.firebaseapp.com",
-    databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
-    projectId: "my-brand-irene-c2a80",
-    storageBucket: "my-brand-irene-c2a80.appspot.com",
-    messagingSenderId: "981307922858",
-    appId: "1:981307922858:web:e98322b269aa6cf23f73d3",
-    measurementId: "G-3Y9D2K7LVQ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-        const db = firebase.firestore();
-      </script>
     <script src="./crud.js"></script>
     <script src="./blog.js"></script>
 </body>
+
 </html>

@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./sign.css">
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Sign-in Page</title>
 </head>
+
 <body>
     <header class="main-header">
         <nav class="main-nav">
             <div class="brand-name">Irene</div>
-        <a href="#" class="togglebtn">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-        <div class="navLinks">
-            <ul>    
-                <li><a href="../Landing Page/index.html">Home</a></li>
-                <li><a href="../Sign-in Page/sign.html">Sign in</a></li>
-                <li><a href="../Blog-Page/blog.html">Blogs</a></li>
-                <li><a href="../Contact-page/contact.html">Contact Me</a></li>
-            </ul>
-        </div>
+            <a href="#" class="togglebtn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navLinks">
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../Sign-in Page/sign.html">Sign in</a></li>
+                    <li><a href="../Blog-Page/blog.html">Blogs</a></li>
+                    <li><a href="../Contact-page/contact.html">Contact Me</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <div class="container">
@@ -39,56 +42,35 @@
                 <input type="password" name="password" id="password" placeholder="Password">
             </div>
             <div class="input-group">
-                <button  class="btn" id="signBtn" onclick="login()" >Sign In</button>
-            </div>  
+                <button class="btn" id="signBtn">Sign In</button>
+            </div>
         </div>
     </div>
     <footer class="main-footer">
         <div class="footer-container">
             <nav class="footer-nav">
                 <ul>
-                <li><a href="#"><img src="./Images/github.svg" alt="Github" class="svgs"><span class="words">GitHub</span></a></li>
-                <li><a href="#"><img src="./Images/gmail.svg" alt="Gmail" class="svgs"> <span class="words">Gmail</span> </a></li>
-                <li><a href="#"><img src="./Images/linkedin.svg" alt="LinkedIn" class="svgs"> <span class="words">LinkedIn</span> </a></li>
-            </ul>
+                    <li><a href="#"><img src="./Images/github.svg" alt="Github" class="svgs"><span
+                                class="words">GitHub</span></a></li>
+                    <li><a href="#"><img src="./Images/gmail.svg" alt="Gmail" class="svgs"> <span
+                                class="words">Gmail</span> </a></li>
+                    <li><a href="#"><img src="./Images/linkedin.svg" alt="LinkedIn" class="svgs"> <span
+                                class="words">LinkedIn</span> </a></li>
+                </ul>
             </nav>
         </div>
     </footer>
-    
+
     <div id="admin-div">
         <h3>Welcome to the Admin Portal</h3>
         <button class="btn" id="blogsBtn"><a href="../Blog-Page/blog-admin.html">Review Blogs</a></button>
         <button class="btn" id="queriesBtn"><a href="../Contact-page/queries.html">Review Queries</a></button>
 
-        <button class="btn" id="logOutBtn" onclick="logout()">Logout</button>
+        <button class="btn" id="logOutBtn">Logout</button>
     </div>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
-    authDomain: "my-brand-irene-c2a80.firebaseapp.com",
-    databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
-    projectId: "my-brand-irene-c2a80",
-    storageBucket: "my-brand-irene-c2a80.appspot.com",
-    messagingSenderId: "981307922858",
-    appId: "1:981307922858:web:3b328bca4898b9e43f73d3",
-    measurementId: "G-R1DXGW7LKM"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
 
     <script src="../Landing Page/landing.js"></script>
     <script src="./sign.js"></script>
 </body>
+
 </html>

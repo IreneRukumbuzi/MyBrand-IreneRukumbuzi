@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./blog.css">
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Blogs Page</title>
 </head>
+
 <body>
-        <nav class="navbar">
+    <nav class="navbar">
         <div class="brand-name">Irene</div>
         <a href="#" class="togglebtn">
             <span class="bar"></span>
@@ -16,49 +19,22 @@
         </a>
         <div class="main-nav">
             <ul>
-                <li><a href="../Landing Page/index.html">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../Sign-in Page/sign.html">Sign-in</a></li>
                 <li><a href="../Blog-Page/blog.html">Blogs</a></li>
                 <li><a href="../Contact-page/contact.html">Contact Me</a></li>
             </ul>
         </div>
-        </nav>
+    </nav>
     <div class="cards">
         <div class="cards_container">
 
         </div>
-      
+
     </div>
 
-     
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAlyd3OzqGEYbvGMYiXRFDYdYQOdPO6Q6Q",
-    authDomain: "my-brand-irene-c2a80.firebaseapp.com",
-    databaseURL: "https://my-brand-irene-c2a80.firebaseio.com",
-    projectId: "my-brand-irene-c2a80",
-    storageBucket: "my-brand-irene-c2a80.appspot.com",
-    messagingSenderId: "981307922858",
-    appId: "1:981307922858:web:e98322b269aa6cf23f73d3",
-    measurementId: "G-3Y9D2K7LVQ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-  const db = firebase.firestore();
-</script>
-
-    <script src="./blogsCard.js"></script>
     <script src="./blog.js"></script>
+    <script src="./blogsCard.js"></script>
 </body>
+
 </html>

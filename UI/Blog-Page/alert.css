@@ -1,0 +1,12 @@
+#alertMessage{
+    background-color: green;
+    width: 20vw;
+    height: 6vh;
+    justify-content: center;
+    position: relative;
+    padding: 3px;
+    left: 40vw;
+    text-align: center;
+    border-radius: 10px;
+    visibility: hidden;
+}

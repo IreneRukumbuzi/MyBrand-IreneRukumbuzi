@@ -52,7 +52,7 @@ body{
 .heading h2{
     font-size: 32px;
     text-align: center;
-    color: red;
+    color: white;
 }
 
 .btn{
@@ -199,7 +199,8 @@ h3{
 @media (max-width: 600px){
 
     body{
-        overflow: visible;
+        overflow-y: hidden;
+        z-index: 2;
     }
     header{
         display: flex;
