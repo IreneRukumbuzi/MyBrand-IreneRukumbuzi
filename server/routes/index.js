@@ -17,6 +17,7 @@ router.get('/blogs/:id', blogsController.getSpecificBlog);
 router.delete('/blogs/:id', authValid.verifyToken, blogsController.delete);
 router.patch('/blogs/:id', authValid.verifyToken, blogsController.updateBlog);
 router.post('/blogs/comments/:id', commentValidator.commentValidator, blogsController.comments);
+router.get('/blogs/comments/:id', blogsController.getComments);
 router.post('/blogs/likes/:id', blogsController.likes);
 router.get('/queries', authValid.verifyToken, queriesController.storeQueries);
 router.get('/queries/:id', authValid.verifyToken, queriesController.getOneQuery);

@@ -190,6 +190,22 @@ describe('My Brand IR Api', () => {
           done();
         });
     });
+    it('it should get all the comments by id', (done) => {
+      chai.request(server)
+        .get(`/blogs/comments/${blogId}`)
+        .end((err, response) => {
+          response.should.have.status(200);
+          done();
+        });
+    });
+    it('it should not get all the comments by id', (done) => {
+      chai.request(server)
+        .get('/blogs/comments/hdhshahdhd')
+        .end((err, response) => {
+          response.should.have.status(400);
+          done();
+        });
+    });
     it('It should not add a comment by id', (done) => {
       chai.request(server)
         .post('/blogs/comments/hdhshhshaa')
