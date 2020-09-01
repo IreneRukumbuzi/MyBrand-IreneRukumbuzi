@@ -41,6 +41,15 @@ exports.comments = async (req, res) => {
   }
 };
 
+exports.getComments = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    res.status(200).send({ data: blog.comments });
+  } catch (error) {
+    res.status(400).send({ error: 'Blog not found' });
+  }
+};
+
 exports.likes = async (req, res) => {
   try {
     await Blog.updateOne({ _id: req.params.id }, { $inc: { likes: 1 } });
